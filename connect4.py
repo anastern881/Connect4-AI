@@ -10,8 +10,8 @@ st_stolpcev = 7
 #rgb barve
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-YELLOW = (255, 255, 0)
+PINK = (230, 25, 97)
+GREEN = (57, 255, 20)
 
 
 def ustvari_mrezo():
@@ -71,9 +71,9 @@ def narisi_mrezo(mreza):
     for s in range(st_stolpcev):
         for v in range(st_vrstic):
             if mreza[v][s] == 1:
-                pygame.draw.circle(screen, RED, (int(s*kvadrat + kvadrat/2), visina - int(v*kvadrat + kvadrat/2)), rad)
+                pygame.draw.circle(screen, PINK, (int(s*kvadrat + kvadrat/2), visina - int(v*kvadrat + kvadrat/2)), rad)
             elif mreza[v][s] == 2:
-                pygame.draw.circle(screen, YELLOW, (int(s*kvadrat + kvadrat/2), visina - int(v*kvadrat + kvadrat/2)), rad)
+                pygame.draw.circle(screen, GREEN, (int(s*kvadrat + kvadrat/2), visina - int(v*kvadrat + kvadrat/2)), rad)
     pygame.display.update()
 
 
@@ -109,9 +109,9 @@ while not konec:
             pygame.draw.rect(screen, BLACK, (0, 0, sirina, kvadrat))
             posx = poteza.pos[0]
             if turn == 0:
-                pygame.draw.circle(screen, RED, (posx, int(kvadrat/2)), rad)
+                pygame.draw.circle(screen, PINK, (posx, int(kvadrat/2)), rad)
             else:
-                pygame.draw.circle(screen, YELLOW, (posx, int(kvadrat/2)), rad)
+                pygame.draw.circle(screen, GREEN, (posx, int(kvadrat/2)), rad)
         pygame.display.update()
 
         if poteza.type == pygame.MOUSEBUTTONDOWN:
@@ -126,7 +126,7 @@ while not konec:
                     igraj(mreza, vrstica, stolpec, 1)
 
                     if zmagovalna_poteza(mreza, 1):
-                        label = myfont.render("Zmaga!", 1, RED)
+                        label = myfont.render("Zmaga!", 1, PINK)
                         screen.blit(label, (40, 10))
                         konec = True
 
@@ -141,7 +141,7 @@ while not konec:
                     igraj(mreza, vrstica, stolpec, 2)
 
                     if zmagovalna_poteza(mreza, 2):
-                        label = myfont.render("Zmaga!", 1, YELLOW)
+                        label = myfont.render("Zmaga!", 1, GREEN)
                         screen.blit(label, (40, 10))
                         konec = True
 
