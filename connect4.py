@@ -7,17 +7,14 @@ import math
 st_vrstic = 6
 st_stolpcev = 7
 
-#rgb barve
-BLUE = (0, 0, 255)
-BLACK = (0, 0, 0)
-PINK = (230, 25, 97)
-GREEN = (57, 255, 20)
 
 
 def ustvari_mrezo():
     mreza = np.zeros((st_vrstic, st_stolpcev))
     return mreza
 
+def izpisi_mrezo(mreza):
+    print(np.flip(mreza, 0))
 
 def igraj(mreza, vrstica, stolpec, barva):
     mreza[vrstica][stolpec] = barva
@@ -31,10 +28,6 @@ def naslednja_prosta_vrstica(mreza, stolpec):
     for v in range(st_vrstic):
         if mreza[v][stolpec] == 0:
             return v
-
-
-def izpisi_mrezo(mreza):
-    print(np.flip(mreza, 0))
 
 
 def zmagovalna_poteza(mreza, barva):
@@ -83,6 +76,12 @@ konec = False
 turn = 0
 
 pygame.init()
+
+#rgb barve
+PINK = (230, 25, 97)
+GREEN = (57, 255, 20)
+BLUE = (0, 0, 255)
+BLACK = (0, 0, 0)
 
 #velikost kvadratkov in krogcev
 kvadrat = 100
